@@ -1,0 +1,26 @@
+<html>
+	<head>
+	
+	</head>
+	<body>
+		<textarea id='query'></textarea>
+		<button type='button' id='execute' align='right'>Execute</button>
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+		<script>
+			$('#execute').click(function() {
+				query = $('#query').val();
+				$.ajax({
+					type: "GET",
+					dataType: "json",
+					url: "http://localhost:3000/" + query,
+					success: function(data){  
+						console.log(data.row.ID);	
+						console.log(data[0]);
+						//console.log(data.ID);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
